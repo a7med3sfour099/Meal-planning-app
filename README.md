@@ -1,6 +1,6 @@
-# project_1
+# mealplan
 
-A new Flutter project.
+The culinary art of foresight
 
 ## Getting Started
 

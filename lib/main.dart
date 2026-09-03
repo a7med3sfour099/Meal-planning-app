@@ -15,11 +15,13 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
+
     Future.delayed(const Duration(seconds: 3), () {
       debugPrint('Splash Screen Finished!');
     });
   }
 
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
@@ -27,7 +29,7 @@ class _MyAppState extends State<MyApp> {
         body: Stack(
           children: [
             Container(
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage('assets/images/Background.png'),
                   fit: BoxFit.cover,
@@ -38,6 +40,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
             ),
+
             Positioned(
               top: 150,
               left: 0,
@@ -48,6 +51,7 @@ class _MyAppState extends State<MyApp> {
                 height: 397,
               ),
             ),
+
             Positioned(
               top: 575,
               left: 0,
@@ -62,6 +66,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
             ),
+
             Positioned(
               top: 655,
               left: 0,
@@ -69,9 +74,13 @@ class _MyAppState extends State<MyApp> {
               child: Text(
                 'MEAL PLANNER',
                 textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 24, color: Colors.white),
+                style: TextStyle(
+                  fontSize: 24,
+                  color: Colors.white,
+                ),
               ),
             ),
+
             Positioned(
               top: 730,
               left: 0,
@@ -86,6 +95,7 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
             ),
+
             Positioned(
               top: 760,
               left: 0,
