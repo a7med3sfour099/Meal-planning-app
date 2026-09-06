@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:mealplan/features/search/view/search_view.dart';
+import 'package:mealplan/meal_to_prepare.dart';
 import 'package:mealplan/splash.dart';
 
 void main() {
