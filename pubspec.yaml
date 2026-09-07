@@ -24,7 +24,6 @@ dev_dependencies:
 flutter:
   assets:
     - assets/images/
-    - images/food_bg.jpg
 
   fonts:
     - family: FleurDeLeah
