@@ -1,7 +1,29 @@
 import 'package:flutter/material.dart';
+import 'favorites/favorites_data.dart';
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
   const Home({super.key});
+
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  void toggleFavorite({
+    required String image,
+    required String name,
+    required String type,
+    required String mealType,
+  }) {
+    setState(() {
+      FavoritesData.toggleFavorite(
+        image: image,
+        name: name,
+        type: type,
+        mealType: mealType,
+      );
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +34,7 @@ class Home extends StatelessWidget {
         scrolledUnderElevation: 0,
         surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.white,
-
-        title: Text(
+        title: const Text(
           'Welcome, User',
           style: TextStyle(
             fontSize: 32,
@@ -21,333 +42,529 @@ class Home extends StatelessWidget {
             fontFamily: 'Fleur De Leah',
           ),
         ),
-
         actions: [
           Padding(
-            padding: EdgeInsets.only(right: 16),
+            padding: const EdgeInsets.only(right: 16),
             child: Container(
               width: 40,
               height: 40,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Color.fromARGB(255, 235, 233, 233),
                 shape: BoxShape.circle,
               ),
-              child: Icon(Icons.person, color: Color.fromARGB(255, 98, 95, 95)),
+              child: const Icon(
+                Icons.person,
+                color: Color.fromARGB(255, 98, 95, 95),
+              ),
             ),
           ),
         ],
       ),
+
       body: SafeArea(
         child: SingleChildScrollView(
-          scrollDirection: Axis.vertical,
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(16),
                 child: Text(
                   'Today`s Meal',
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
 
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   'Picked for you today',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
               ),
 
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
+
               Center(
-                child: spicyArribiataPenne(390, 261, 200, 30, fit: BoxFit.fill),
+                child: mealImage(
+                  width: 390,
+                  height: 261,
+                  image: 'assets/images/Dish_1.png',
+                  mealType: 'arrabbiata',
+                  name: 'Spicy Arrabbiata Penne',
+                  type: 'Pasta, Curry',
+                  top: 200,
+                  right: 30,
+                ),
               ),
 
-              Padding(
-                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  top: 16,
+                ),
                 child: Text(
                   'Spicy Arrabiata Penne',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
 
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   'Italian',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w200),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w200,
+                  ),
                 ),
               ),
 
-              SizedBox(height: 5),
+              const SizedBox(height: 5),
 
-              Padding(
-                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  top: 16,
+                ),
                 child: Text(
                   'Greek',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
               ),
 
-              Padding(
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   'Suggested cuisine',
-                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w300,
+                  ),
                 ),
               ),
 
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
+
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   children: [
-                    SizedBox(width: 16),
+                    const SizedBox(width: 16),
 
-                    suggestedCuisine(),
+                    suggestedCuisine(
+                      image: 'assets/images/Dish_1.png',
+                      name: 'Spicy Arrabiata Penne',
+                      type: 'Pasta, Curry',
+                      mealType: 'arrabbiata',
+                    ),
 
-                    SizedBox(width: 17),
+                    const SizedBox(width: 17),
 
-                    suggestedCuisine(),
+                    suggestedCuisine(
+                      image: 'assets/images/burger.jpg',
+                      name: 'Classic Burger',
+                      type: 'Burger, Beef',
+                      mealType: 'burger',
+                    ),
 
-                    SizedBox(width: 17),
+                    const SizedBox(width: 17),
 
-                    suggestedCuisine(),
+                    suggestedCuisine(
+                      image: 'assets/images/chicken.jpg',
+                      name: 'Chicken Meal',
+                      type: 'Chicken',
+                      mealType: 'chicken',
+                    ),
 
-                    SizedBox(width: 17),
+                    const SizedBox(width: 17),
 
-                    suggestedCuisine(),
+                    suggestedCuisine(
+                      image: 'assets/images/Sandwich.png',
+                      name: 'Sandwich',
+                      type: 'Sandwich',
+                      mealType: 'sandwich',
+                    ),
                   ],
                 ),
               ),
-              SizedBox(height: 20),
-              Padding(
-                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+
+              const SizedBox(height: 20),
+
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  top: 16,
+                ),
                 child: Text(
                   'Daily Selection',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                ),
-              ),
-
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 16),
-                child: Text(
-                  'Random meals to explore',
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w200),
-                ),
-              ),
-              SingleChildScrollView(
-                scrollDirection: Axis.horizontal,
-                child: SizedBox(
-                  width: 370,
-                  height: 405,
-                  child: Stack(
-                    children: [
-                      dailySelection(0, 'Assets/Images/Dish_2.png'),
-                      dailySelection(9, 'Assets/Images/Dish_1.png'),
-                      dailySelection(18, 'Assets/Images/Dish_2.png'),
-                      Positioned(
-                        left: 2,
-                        bottom: 12,
-                        width: 366,
-                        height: 45,
-                        child: Container(
-                            width: 86,
-                                      height: 36,
-                                      decoration: BoxDecoration(
-                                        color: Colors.black45,
-                                        borderRadius: BorderRadius.only(bottomLeft:Radius.circular(18) ),
-                                      ),
-                                      child: Column(
-                                        children: [
-                                          Text(
-                                            'Spicy Arrabiata Penne',
-                                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400,
-                                            color: Colors.white),
-                                          ),
-                                          Text('italian',
-                                            style: TextStyle(fontSize: 14, fontWeight: FontWeight.w400,
-                                            color: Colors.white),)
-                                        ],
-                                      ),
-                        ),
-                      )
-                    ],
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
                   ),
                 ),
               ),
-            Padding(
-                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
+
+              const Padding(
+                padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
-                  'Meal to Prepare',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                  'Random meals to explore',
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w200,
+                  ),
                 ),
               ),
 
-              Padding(
+              const SizedBox(height: 10),
+
+              dailySelection(
+                image: 'assets/images/Dish_2.png',
+                name: 'Daily Dish',
+                type: 'Meal',
+                mealType: 'daily_dish',
+              ),
+
+              const SizedBox(height: 20),
+
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  top: 16,
+                ),
+                child: Text(
+                  'Meal to Prepare',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                ),
+              ),
+
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   'Today from your calendar',
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w200),
-                ),
-              ),
-              spicyArribiataPenne(390, 261, 200, 30, fit: BoxFit.fill)
-              ,Padding(
-                padding: EdgeInsets.only(left: 16, right: 16, top: 5),
-                child: Text(
-                  'Spicy Arrabiata Penne',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w200,
+                  ),
                 ),
               ),
 
-              Padding(
+              const SizedBox(height: 10),
+
+              Center(
+                child: mealImage(
+                  width: 390,
+                  height: 261,
+                  image: 'assets/images/Dish_1.png',
+                  mealType: 'arrabbiata',
+                  name: 'Spicy Arrabbiata Penne',
+                  type: 'Pasta, Curry',
+                  top: 200,
+                  right: 30,
+                ),
+              ),
+
+              const Padding(
+                padding: EdgeInsets.only(
+                  left: 16,
+                  right: 16,
+                  top: 5,
+                ),
+                child: Text(
+                  'Spicy Arrabiata Penne',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+
+              const Padding(
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   '8 Ingredients',
-                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w200),
+                  style: TextStyle(
+                    fontSize: 13,
+                    fontWeight: FontWeight.w200,
+                  ),
                 ),
               ),
+
+              const SizedBox(height: 30),
             ],
-          
           ),
         ),
       ),
-      bottomNavigationBar: Container(
-        height: 75,
-        decoration: BoxDecoration(
-          color: Colors.white10,
+    );
+  }
 
-          boxShadow: [
-            BoxShadow(
-              color: Color(0x15000000),
-              blurRadius: 10,
-              offset: Offset(0, -2),
-            ),
-          ],
-        ),
+  // =========================
+  // Big Meal Image
+  // =========================
 
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+  Widget mealImage({
+    required double width,
+    required double height,
+    required String image,
+    required String mealType,
+    required String name,
+    required String type,
+    required double top,
+    required double right,
+  }) {
+    return SizedBox(
+      width: width,
+      height: height,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Stack(
           children: [
-            _navItem(icon: Icons.home, label: 'Home', selected: true),
+            Positioned.fill(
+              child: Image.asset(
+                image,
+                fit: BoxFit.fill,
+              ),
+            ),
 
-            _navItem(icon: Icons.search, label: 'Search'),
+            // Vegetarian
+            Positioned(
+              top: top,
+              right: right,
+              child: Container(
+                width: 86,
+                height: 36,
+                decoration: BoxDecoration(
+                  color: Colors.white38,
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: const Center(
+                  child: Text(
+                    'Vegetarian',
+                    style: TextStyle(
+                      fontSize: 12,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ),
+              ),
+            ),
 
-            _navItem(icon: Icons.public, label: 'Explore'),
-
-            _navItem(icon: Icons.bookmark, label: 'Favorites'),
-
-            _navItem(icon: Icons.calendar_month, label: 'Calendar'),
+            // Favorite
+            Positioned(
+              top: 10,
+              right: 10,
+              child: favoriteButton(
+                image: image,
+                name: name,
+                type: type,
+                mealType: mealType,
+              ),
+            ),
           ],
         ),
       ),
     );
   }
-}
 
-Widget spicyArribiataPenne(
-  double width,
-  double height,
-  double top,
-  double right, {
-  BoxFit fit = BoxFit.cover,
-}) {
-  return SizedBox(
-    width: width,
-    height: height,
-    child: ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(20)),
-      child: Stack(
+  // =========================
+  // Favorite Button
+  // =========================
+
+  Widget favoriteButton({
+    required String image,
+    required String name,
+    required String type,
+    required String mealType,
+  }) {
+    final bool isFavorite =
+    FavoritesData.isFavorite(mealType);
+
+    return Container(
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        shape: BoxShape.circle,
+      ),
+      child: IconButton(
+        onPressed: () {
+          toggleFavorite(
+            image: image,
+            name: name,
+            type: type,
+            mealType: mealType,
+          );
+        },
+        icon: Icon(
+          isFavorite
+              ? Icons.favorite
+              : Icons.favorite_border,
+          color: isFavorite
+              ? Colors.red
+              : Colors.grey,
+          size: 22,
+        ),
+      ),
+    );
+  }
+
+  // =========================
+  // Suggested Cuisine
+  // =========================
+
+  Widget suggestedCuisine({
+    required String image,
+    required String name,
+    required String type,
+    required String mealType,
+  }) {
+    return SizedBox(
+      width: 176,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Positioned.fill(
-            child: Image.asset('Assets/Images/Dish_1.png', fit: fit),
+          SizedBox(
+            width: 176,
+            height: 176,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(20),
+              child: Stack(
+                children: [
+                  Positioned.fill(
+                    child: Image.asset(
+                      image,
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+
+                  Positioned(
+                    top: 8,
+                    right: 8,
+                    child: favoriteButton(
+                      image: image,
+                      name: name,
+                      type: type,
+                      mealType: mealType,
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
 
-          Positioned(
-            top: top,
-            right: right,
-            child: Container(
-              width: 86,
-              height: 36,
-              decoration: BoxDecoration(
-                color: Colors.white38,
-                borderRadius: BorderRadius.circular(18),
-              ),
-              child: Center(
-                child: Text(
-                  'Vegetarian',
-                  style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
-                ),
-              ),
+          const SizedBox(height: 5),
+
+          Text(
+            name,
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              fontSize: 14,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+
+          Text(
+            type,
+            style: const TextStyle(
+              fontSize: 12,
+              fontWeight: FontWeight.w200,
             ),
           ),
         ],
       ),
-    ),
-  );
-}
+    );
+  }
 
-Widget suggestedCuisine() {
-  return Column(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      spicyArribiataPenne(176, 176, 125, 5),
+  // =========================
+  // Daily Selection
+  // =========================
 
-      SizedBox(height: 5),
+  Widget dailySelection({
+    required String image,
+    required String name,
+    required String type,
+    required String mealType,
+  }) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      child: SizedBox(
+        width: double.infinity,
+        height: 250,
+        child: ClipRRect(
+          borderRadius: BorderRadius.circular(20),
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: Image.asset(
+                  image,
+                  fit: BoxFit.cover,
+                ),
+              ),
 
-      Text(
-        'Spicy Arrabiata Penne',
-        style: TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
-      ),
+              // Favorite
+              Positioned(
+                top: 10,
+                right: 10,
+                child: favoriteButton(
+                  image: image,
+                  name: name,
+                  type: type,
+                  mealType: mealType,
+                ),
+              ),
 
-      Text(
-        'Pasta, Curry',
-        style: TextStyle(fontSize: 12, fontWeight: FontWeight.w200),
-      ),
-    ],
-  );
-}
-
-Widget _navItem({
-  required IconData icon,
-  required String label,
-  bool selected = false,
-}) {
-  return Column(
-    mainAxisAlignment: MainAxisAlignment.center,
-    mainAxisSize: MainAxisSize.min,
-    children: [
-      Icon(
-        icon,
-        size: 27,
-        color: selected ? Color(0xFF5F6368) : Color(0xFF808388),
-      ),
-
-      SizedBox(height: 3),
-
-      Text(
-        label,
-        style: TextStyle(
-          fontSize: 10,
-          fontWeight: selected ? FontWeight.w600 : FontWeight.w400,
-          color: selected ? Color(0xFF5F6368) : Color(0xFF808388),
+              // Meal information
+              Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                child: Container(
+                  padding: const EdgeInsets.all(12),
+                  color: Colors.black45,
+                  child: Column(
+                    crossAxisAlignment:
+                    CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        name,
+                        style: const TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Text(
+                        type,
+                        style: const TextStyle(
+                          fontSize: 12,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
-    ],
-  );
-}
-
-Widget dailySelection(double left, String imagePath) {
-  return Positioned(
-    left: left,
-    top: 0,
-    height: 405,
-    child: ClipRRect(
-      borderRadius: BorderRadius.circular(20),
-      child: Image.asset(imagePath, width: 350, height: 180, fit: BoxFit.cover),
-    ),
-    
-    
-  );
+    );
+  }
 }

@@ -4,6 +4,8 @@ import 'package:mealplan/meal_to_prepare.dart';
 import 'package:mealplan/splash.dart';
 import 'sign_in_screen.dart';
 import 'sign_up_screen.dart';
+import 'package:mealplan/features/favorites/view/favorites_view.dart';
+import 'main_navigation.dart';
 
 
 void main() {
@@ -23,7 +25,7 @@ class _MyAppState extends State<MyApp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       // home: Splash(),
-      home: Search(),
+      home: const MainNavigation(),
 
       routes: <String, WidgetBuilder>{
         '/signin': (context) => const SignInScreen(),

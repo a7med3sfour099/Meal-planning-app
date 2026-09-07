@@ -8,7 +8,7 @@ class meal extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: .fromSeed(seedColor: Colors.black),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.black),
         textTheme: const TextTheme(
           headlineLarge: TextStyle(
             fontSize: 24,
@@ -235,7 +235,7 @@ Widget _buildInstructions() {
     children: [
       Text(
         'Preheat oven to 350° F. Spray a 9x13-inch '
-        'baking pan with non-stick spray.',
+            'baking pan with non-stick spray.',
         style: TextStyle(fontSize: 15, height: 1.4, color: Colors.black),
       ),
 
@@ -243,10 +243,10 @@ Widget _buildInstructions() {
 
       Text(
         'Combine soy sauce, ½ cup water, brown '
-        'sugar, ginger and garlic in a small saucepan '
-        'and cover. Bring to a boil over medium heat. '
-        'Remove lid and cook for one minute once '
-        'boiling.',
+            'sugar, ginger and garlic in a small saucepan '
+            'and cover. Bring to a boil over medium heat. '
+            'Remove lid and cook for one minute once '
+            'boiling.',
         style: TextStyle(fontSize: 15, height: 1.4, color: Colors.black),
       ),
 
@@ -254,11 +254,11 @@ Widget _buildInstructions() {
 
       Text(
         'Meanwhile, stir together the corn starch and '
-        '2 tablespoons of water in a separate dish until '
-        'smooth. Once sauce is boiling, add mixture to '
-        'the saucepan and stir to combine. Cook until '
-        'the sauce starts to thicken then remove from '
-        'heat.',
+            '2 tablespoons of water in a separate dish until '
+            'smooth. Once sauce is boiling, add mixture to '
+            'the saucepan and stir to combine. Cook until '
+            'the sauce starts to thicken then remove from '
+            'heat.',
         style: TextStyle(fontSize: 15, height: 1.4, color: Colors.black),
       ),
     ],
