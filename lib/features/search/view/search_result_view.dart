@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import '../../meal/view/meal_details_view.dart';
 
 class SearchResultsView extends StatelessWidget {
   const SearchResultsView({super.key});
@@ -17,8 +18,18 @@ class SearchResultsView extends StatelessWidget {
             style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.w500),
           ),
           const Gap(16.0),
-
-          ClipRRect(
+      GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => const MealDetailsView(
+                mealType: 'arrabbiata',
+              ),
+            ),
+          );
+        },
+        child:ClipRRect(
             borderRadius: BorderRadius.circular(16.0),
             child: Stack(
               alignment: Alignment.bottomLeft,
@@ -63,6 +74,7 @@ class SearchResultsView extends StatelessWidget {
               ],
             ),
           ),
+    ),
 
           const Gap(24.0),
           const Text(

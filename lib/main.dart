@@ -7,6 +7,7 @@ import 'sign_in_screen.dart';
 import 'sign_up_screen.dart';
 import 'package:mealplan/features/favorites/view/favorites_view.dart';
 import 'main_navigation.dart';
+import 'package:mealplan/features/explore/explore_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -24,15 +25,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Splash(),
-      // home: CalendarScreen(),
-      // home: const MainNavigation(),
-
-      routes: <String, WidgetBuilder>{
-        '/signin': (context) => const SignInScreen(),
+      home: const Splash(),
+      routes: {
         '/signup': (context) => const SignUpScreen(),
+        '/signin': (context) => const SignInScreen(),
         '/home': (context) => const MainNavigation(),
-        '/search': (context) => SearchScreen(),
         '/favorites': (context) => const FavoritesView(),
         '/meal_to_prepare': (context) => const MealToPrepareScreen(),
       },

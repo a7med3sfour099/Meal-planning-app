@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
+import '../../meal/view/meal_details_view.dart';
 
 class CalendarScreen extends StatelessWidget {
   const CalendarScreen({super.key});
@@ -30,10 +31,12 @@ class CalendarScreen extends StatelessWidget {
               _buildDateHeader('Feb 18', 'Wednesday'),
               const Gap(16.0),
               _buildMealItem(
+                context,
                 'Starter',
                 'Spicy Arrabiata Penne',
                 '12 Ingredients',
                 placeholderImage,
+                'arrabbiata',
               ),
               const Gap(24.0),
 
@@ -41,17 +44,21 @@ class CalendarScreen extends StatelessWidget {
               _buildDateHeader('Feb 19', 'Thursday'),
               const Gap(16.0),
               _buildMealItem(
+                context,
                 'Starter',
                 'Spicy Arrabiata Penne',
                 '12 Ingredients',
                 placeholderImage,
+                'arrabbiata',
               ),
               const Gap(12.0),
               _buildMealItem(
+                context,
                 'Starter',
                 'Spicy Arrabiata Penne',
                 '12 Ingredients',
                 placeholderImage,
+                'arrabbiata',
               ),
               const Gap(24.0),
 
@@ -59,10 +66,12 @@ class CalendarScreen extends StatelessWidget {
               _buildDateHeader('Feb 20', 'Friday'),
               const Gap(16.0),
               _buildMealItem(
+                context,
                 'Starter',
                 'Spicy Arrabiata Penne',
                 '12 Ingredients',
                 placeholderImage,
+                'arrabbiata',
               ),
               const Gap(24.0),
 
@@ -70,10 +79,12 @@ class CalendarScreen extends StatelessWidget {
               _buildDateHeader('Feb 21', 'Saturday'),
               const Gap(16.0),
               _buildMealItem(
+                context,
                 'Starter',
                 'Spicy Arrabiata Penne',
                 '12 Ingredients',
                 placeholderImage,
+                'arrabbiata',
               ),
             ],
           ),
@@ -114,12 +125,25 @@ class CalendarScreen extends StatelessWidget {
 
   /// Builds the individual meal row with the image and text details
   Widget _buildMealItem(
-    String category,
-    String name,
-    String ingredients,
-    String imagePath,
+      BuildContext context,
+      String category,
+      String name,
+      String ingredients,
+      String imagePath,
+      String mealType,
   ) {
-    return Row(
+    return GestureDetector(
+    onTap: () {
+      Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => MealDetailsView(
+            mealType: mealType,
+          ),
+        ),
+      );
+    },
+    child: Row(
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         // Image Container with soft pinkish shadow/background
@@ -188,6 +212,7 @@ class CalendarScreen extends StatelessWidget {
           ),
         ),
       ],
+    ),
     );
   }
 }

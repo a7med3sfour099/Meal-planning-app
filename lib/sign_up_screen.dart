@@ -18,6 +18,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
       String password = passwordController.text.trim();
 
       print('Sign up with: $email / $password');
+
+      Navigator.pushReplacementNamed(context, '/signin');
     } catch (e) {
       print('Something went wrong: $e');
     }
