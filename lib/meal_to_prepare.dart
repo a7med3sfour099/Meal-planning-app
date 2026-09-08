@@ -104,7 +104,7 @@ class MealToPrepareScreen extends StatelessWidget {
                       ClipRRect(
                         borderRadius: BorderRadius.all(Radius.circular(16)),
                         child: Image.asset(
-                          "assets/images/d56d0ac12a1226ce3d0616411996ee38afc0790a.jpg",
+                          "assets/images/Spicy_Arrabiata_Penne.jpg",
                           width: 345,
                           height: 261,
                           fit: BoxFit.cover,
@@ -324,7 +324,7 @@ Widget _buildRecipeVideo() {
       children: [
         // Food image
         Image.asset(
-          'assets/images/d56d0ac12a1226ce3d0616411996ee38afc0790a.jpg',
+          'assets/images/Spicy_Arrabiata_Penne.jpg',
           width: 345,
           height: 209,
           fit: BoxFit.cover,

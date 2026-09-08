@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mealplan/auth_screen.dart';
 import 'package:mealplan/sign_up_screen.dart';
 
 class Splash extends StatefulWidget {
@@ -26,7 +27,7 @@ class _SplashState extends State<Splash> {
           onTap: () {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (context) => const SignUpScreen()),
+              MaterialPageRoute(builder: (context) => const AuthScreen()),
             );
           },
           child: Stack(
