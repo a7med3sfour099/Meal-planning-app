@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:mealplan/features/calendar/view/calendar.dart';
 
 import 'package:mealplan/features/favorites/view/favorites_view.dart';
 import 'package:mealplan/features/search/view/search_view.dart';
 
-// لو ملف Home عندك اسمه مختلف، غيري السطر ده فقط.
 import 'package:mealplan/features/home.dart';
 
 class MainNavigation extends StatefulWidget {
@@ -23,24 +23,22 @@ class _MainNavigationState extends State<MainNavigation> {
     const Center(
       child: Text(
         'Explore',
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
+        style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
       ),
     ),
 
     const FavoritesView(),
+    const CalendarScreen(),
 
-    const Center(
-      child: Text(
-        'Calendar',
-        style: TextStyle(
-          fontSize: 24,
-          fontWeight: FontWeight.bold,
-        ),
-      ),
-    ),
+    // const Center(
+    //   child: Text(
+    //     'Calendar',
+    //     style: TextStyle(
+    //       fontSize: 24,
+    //       fontWeight: FontWeight.bold,
+    //     ),
+    //   ),
+    // ),
   ];
 
   @override
@@ -73,15 +71,9 @@ class _MainNavigationState extends State<MainNavigation> {
             label: 'Home',
           ),
 
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.search), label: 'Search'),
 
-          BottomNavigationBarItem(
-            icon: Icon(Icons.public),
-            label: 'Explore',
-          ),
+          BottomNavigationBarItem(icon: Icon(Icons.public), label: 'Explore'),
 
           BottomNavigationBarItem(
             icon: Icon(Icons.bookmark_border),

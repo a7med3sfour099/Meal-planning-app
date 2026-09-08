@@ -35,7 +35,7 @@ class _HomeState extends State<Home> {
         surfaceTintColor: Colors.transparent,
         backgroundColor: Colors.white,
         title: const Text(
-          'Welcome, User',
+          'Welcome, Shahd',
           style: TextStyle(
             fontSize: 32,
             fontWeight: FontWeight.bold,
@@ -70,10 +70,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.all(16),
                 child: Text(
                   'Today`s Meal',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
                 ),
               ),
 
@@ -81,40 +78,35 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   'Picked for you today',
-                  style: TextStyle(
-                    fontSize: 15,
-                    fontWeight: FontWeight.w300,
-                  ),
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w300),
                 ),
               ),
 
               const SizedBox(height: 10),
 
-              Center(
-                child: mealImage(
-                  width: 390,
-                  height: 261,
-                  image: 'assets/images/Dish_1.png',
-                  mealType: 'arrabbiata',
-                  name: 'Spicy Arrabbiata Penne',
-                  type: 'Pasta, Curry',
-                  top: 200,
-                  right: 30,
+              GestureDetector(
+                onTap: () {
+                  Navigator.pushNamed(context, '/meal_to_prepare');
+                },
+                child: Center(
+                  child: mealImage(
+                    width: 390,
+                    height: 261,
+                    image: 'assets/images/Dish_1.png',
+                    mealType: 'arrabbiata',
+                    name: 'Spicy Arrabbiata Penne',
+                    type: 'Pasta, Curry',
+                    top: 200,
+                    right: 30,
+                  ),
                 ),
               ),
 
               const Padding(
-                padding: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
-                  top: 16,
-                ),
+                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
                 child: Text(
                   'Spicy Arrabiata Penne',
-                  style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w500),
                 ),
               ),
 
@@ -122,27 +114,17 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   'Italian',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w200,
-                  ),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w200),
                 ),
               ),
 
               const SizedBox(height: 5),
 
               const Padding(
-                padding: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
-                  top: 16,
-                ),
+                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
                 child: Text(
                   'Greek',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
               ),
 
@@ -150,10 +132,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   'Suggested cuisine',
-                  style: TextStyle(
-                    fontSize: 16,
-                    fontWeight: FontWeight.w300,
-                  ),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
                 ),
               ),
 
@@ -205,17 +184,10 @@ class _HomeState extends State<Home> {
               const SizedBox(height: 20),
 
               const Padding(
-                padding: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
-                  top: 16,
-                ),
+                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
                 child: Text(
                   'Daily Selection',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
               ),
 
@@ -223,10 +195,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   'Random meals to explore',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w200,
-                  ),
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w200),
                 ),
               ),
 
@@ -242,17 +211,10 @@ class _HomeState extends State<Home> {
               const SizedBox(height: 20),
 
               const Padding(
-                padding: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
-                  top: 16,
-                ),
+                padding: EdgeInsets.only(left: 16, right: 16, top: 16),
                 child: Text(
                   'Meal to Prepare',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w600,
-                  ),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
               ),
 
@@ -260,10 +222,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   'Today from your calendar',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w200,
-                  ),
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w200),
                 ),
               ),
 
@@ -283,17 +242,10 @@ class _HomeState extends State<Home> {
               ),
 
               const Padding(
-                padding: EdgeInsets.only(
-                  left: 16,
-                  right: 16,
-                  top: 5,
-                ),
+                padding: EdgeInsets.only(left: 16, right: 16, top: 5),
                 child: Text(
                   'Spicy Arrabiata Penne',
-                  style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500,
-                  ),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w500),
                 ),
               ),
 
@@ -301,10 +253,7 @@ class _HomeState extends State<Home> {
                 padding: EdgeInsets.symmetric(horizontal: 16),
                 child: Text(
                   '8 Ingredients',
-                  style: TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w200,
-                  ),
+                  style: TextStyle(fontSize: 13, fontWeight: FontWeight.w200),
                 ),
               ),
 
@@ -337,12 +286,7 @@ class _HomeState extends State<Home> {
         borderRadius: BorderRadius.circular(20),
         child: Stack(
           children: [
-            Positioned.fill(
-              child: Image.asset(
-                image,
-                fit: BoxFit.fill,
-              ),
-            ),
+            Positioned.fill(child: Image.asset(image, fit: BoxFit.fill)),
 
             // Vegetarian
             Positioned(
@@ -358,10 +302,7 @@ class _HomeState extends State<Home> {
                 child: const Center(
                   child: Text(
                     'Vegetarian',
-                    style: TextStyle(
-                      fontSize: 12,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400),
                   ),
                 ),
               ),
@@ -394,8 +335,7 @@ class _HomeState extends State<Home> {
     required String type,
     required String mealType,
   }) {
-    final bool isFavorite =
-    FavoritesData.isFavorite(mealType);
+    final bool isFavorite = FavoritesData.isFavorite(mealType);
 
     return Container(
       decoration: const BoxDecoration(
@@ -412,12 +352,8 @@ class _HomeState extends State<Home> {
           );
         },
         icon: Icon(
-          isFavorite
-              ? Icons.favorite
-              : Icons.favorite_border,
-          color: isFavorite
-              ? Colors.red
-              : Colors.grey,
+          isFavorite ? Icons.favorite : Icons.favorite_border,
+          color: isFavorite ? Colors.red : Colors.grey,
           size: 22,
         ),
       ),
@@ -446,12 +382,7 @@ class _HomeState extends State<Home> {
               borderRadius: BorderRadius.circular(20),
               child: Stack(
                 children: [
-                  Positioned.fill(
-                    child: Image.asset(
-                      image,
-                      fit: BoxFit.cover,
-                    ),
-                  ),
+                  Positioned.fill(child: Image.asset(image, fit: BoxFit.cover)),
 
                   Positioned(
                     top: 8,
@@ -474,18 +405,12 @@ class _HomeState extends State<Home> {
             name,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: const TextStyle(
-              fontSize: 14,
-              fontWeight: FontWeight.w500,
-            ),
+            style: const TextStyle(fontSize: 14, fontWeight: FontWeight.w500),
           ),
 
           Text(
             type,
-            style: const TextStyle(
-              fontSize: 12,
-              fontWeight: FontWeight.w200,
-            ),
+            style: const TextStyle(fontSize: 12, fontWeight: FontWeight.w200),
           ),
         ],
       ),
@@ -511,12 +436,7 @@ class _HomeState extends State<Home> {
           borderRadius: BorderRadius.circular(20),
           child: Stack(
             children: [
-              Positioned.fill(
-                child: Image.asset(
-                  image,
-                  fit: BoxFit.cover,
-                ),
-              ),
+              Positioned.fill(child: Image.asset(image, fit: BoxFit.cover)),
 
               // Favorite
               Positioned(
@@ -539,8 +459,7 @@ class _HomeState extends State<Home> {
                   padding: const EdgeInsets.all(12),
                   color: Colors.black45,
                   child: Column(
-                    crossAxisAlignment:
-                    CrossAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         name,

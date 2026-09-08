@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});
 
@@ -28,7 +29,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-            Image.asset('assets/images/food_bg.jpg', fit: BoxFit.cover),
+          Image.asset('assets/images/food_bg.jpg', fit: BoxFit.cover),
 
           Container(
             decoration: BoxDecoration(
@@ -45,11 +46,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
             ),
           ),
 
-       SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.end,
+          SafeArea(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 24),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Row(
@@ -77,7 +78,10 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   SizedBox(height: 6),
                   Text(
                     'Start planning your meals today.',
-                    style: GoogleFonts.notoSans(color: Colors.white70, fontSize: 15),
+                    style: GoogleFonts.notoSans(
+                      color: Colors.white70,
+                      fontSize: 15,
+                    ),
                   ),
                   SizedBox(height: 28),
                   Container(
@@ -89,12 +93,20 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     ),
                     child: TextField(
                       controller: emailController,
-                      style: GoogleFonts.notoSans(color: Colors.white, fontSize: 16,fontWeight: FontWeight.w300),
+                      style: GoogleFonts.notoSans(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w300,
+                      ),
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Email Address',
                         hintStyle: TextStyle(color: Colors.white),
-                        icon: Icon(Icons.email_outlined, color: Colors.white, size: 20),
+                        icon: Icon(
+                          Icons.email_outlined,
+                          color: Colors.white,
+                          size: 20,
+                        ),
                       ),
                     ),
                   ),
@@ -105,16 +117,24 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     decoration: BoxDecoration(
                       color: Colors.white.withOpacity(0.15),
                       borderRadius: BorderRadius.circular(10),
-                         ),
+                    ),
                     child: TextField(
                       controller: passwordController,
                       obscureText: true,
-                      style: GoogleFonts.notoSans(color: Colors.white, fontSize: 16,fontWeight: FontWeight.w300),
+                      style: GoogleFonts.notoSans(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w300,
+                      ),
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Password',
                         hintStyle: TextStyle(color: Colors.white),
-                        icon: Icon(Icons.lock_outline, color: Colors.white, size: 20),
+                        icon: Icon(
+                          Icons.lock_outline,
+                          color: Colors.white,
+                          size: 20,
+                        ),
                       ),
                     ),
                   ),
@@ -128,7 +148,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       onPressed: _handleSignUp,
                       style: OutlinedButton.styleFrom(
                         side: BorderSide(color: Colors.white, width: 1.5),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                       ),
                       child: Text(
                         'SIGN UP',

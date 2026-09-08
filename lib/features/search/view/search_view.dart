@@ -90,12 +90,13 @@ class _SearchScreenState extends State<SearchScreen> {
                       ),
                       cursorColor: Colors.black,
                       decoration: InputDecoration(
-                        prefixIcon: (isSearching || _showResults)
+                        prefixIcon: (isSearching)
                             ? IconButton(
                                 onPressed: () {
                                   _searchController.clear();
+                                  _searchFocusNode.unfocus();
                                   setState(() {
-                                    _searchFocusNode.unfocus();
+                                    _showResults = false;
                                   });
                                 },
                                 icon: Icon(

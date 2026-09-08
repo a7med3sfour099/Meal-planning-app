@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class meal extends StatelessWidget {
-  const meal({super.key});
+class MealToPrepareScreen extends StatelessWidget {
+  const MealToPrepareScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +26,11 @@ class meal extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.white,
           leading: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             icon: Icon(Icons.arrow_back_ios),
           ),
           title: Text(
@@ -35,7 +38,45 @@ class meal extends StatelessWidget {
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           centerTitle: true,
-          actions: [IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))],
+          actions: [
+            PopupMenuButton<String>(
+              offset: const Offset(-15, 45),
+              color: Colors.white,
+              icon: const Icon(Icons.more_vert, color: Colors.black),
+              itemBuilder: (BuildContext context) => [
+                const PopupMenuItem<String>(
+                  value: 'remove',
+                  child: Row(
+                    children: [
+                      Icon(Icons.remove, size: 20),
+                      SizedBox(width: 12),
+                      Text('Remove from Calendar'),
+                    ],
+                  ),
+                ),
+                const PopupMenuItem<String>(
+                  value: 'favorite',
+                  child: Row(
+                    children: [
+                      Icon(Icons.favorite, color: Colors.red, size: 20),
+                      SizedBox(width: 12),
+                      Text('Add to Favorites'),
+                    ],
+                  ),
+                ),
+                const PopupMenuItem<String>(
+                  value: 'share',
+                  child: Row(
+                    children: [
+                      Icon(Icons.share_outlined, size: 20),
+                      SizedBox(width: 12),
+                      Text('Share'),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ],
         ),
         body: SafeArea(
           child: Padding(
@@ -74,34 +115,105 @@ class meal extends StatelessWidget {
                         right: 8,
                         child: Row(
                           children: [
-                            Chip(
-                              avatar: Icon(Icons.public, size: 15),
-                              label: Text(
-                                'Japanese',
-                                style: TextStyle(fontSize: 10),
-                              ),
-                              backgroundColor: Colors.white.withValues(
-                                alpha: 0.5,
-                              ),
+                            // Chip(
+                            //   avatar: Icon(
+                            //     Icons.public,
+                            //     color: Colors.black,
+                            //     size: 15,
+                            //   ),
+                            //   label: Text(
+                            //     'Japanese',
+                            //     style: TextStyle(
+                            //       fontSize: 10,
+                            //       fontWeight: FontWeight.w500,
+                            //     ),
+                            //   ),
+                            //   backgroundColor: Colors.transparent,
 
-                              side: BorderSide.none,
-                              shape: RoundedRectangleBorder(
+                            //   side: BorderSide.none,
+                            //   shape: RoundedRectangleBorder(
+                            //     borderRadius: BorderRadius.circular(16),
+                            //   ),
+                            // ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.29),
                                 borderRadius: BorderRadius.circular(16),
+                                border: Border.all(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  width: 0.5,
+                                ),
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 6,
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.public,
+                                    color: Colors.black,
+                                    size: 15,
+                                  ),
+                                  const SizedBox(width: 6),
+                                  Text(
+                                    'Japanese',
+                                    style: const TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                             SizedBox(width: 10),
-                            Chip(
-                              avatar: Icon(Icons.restaurant, size: 15),
-                              label: Text(
-                                'chicken',
-                                style: TextStyle(fontSize: 10),
-                              ),
-                              backgroundColor: Colors.white.withValues(
-                                alpha: 0,
-                              ),
-                              side: BorderSide.none,
-                              shape: RoundedRectangleBorder(
+                            // Chip(
+                            //   avatar: Icon(Icons.restaurant, size: 15),
+                            //   label: Text(
+                            //     'chicken',
+                            //     style: TextStyle(fontSize: 10),
+                            //   ),
+                            //   backgroundColor: Colors.white.withValues(
+                            //     alpha: 0,
+                            //   ),
+                            //   side: BorderSide.none,
+                            //   shape: RoundedRectangleBorder(
+                            //     borderRadius: BorderRadius.circular(16),
+                            //   ),
+                            // ),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white.withOpacity(0.29),
                                 borderRadius: BorderRadius.circular(16),
+                                border: Border.all(
+                                  color: Colors.grey.withOpacity(0.2),
+                                  width: 0.5,
+                                ),
+                              ),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 12,
+                                vertical: 6,
+                              ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  Icon(
+                                    Icons.restaurant,
+                                    color: Colors.black,
+                                    size: 15,
+                                  ),
+                                  const SizedBox(width: 6),
+                                  Text(
+                                    'Chicken',
+                                    style: const TextStyle(
+                                      fontSize: 10,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ),
                           ],
@@ -235,7 +347,7 @@ Widget _buildInstructions() {
     children: [
       Text(
         'Preheat oven to 350° F. Spray a 9x13-inch '
-            'baking pan with non-stick spray.',
+        'baking pan with non-stick spray.',
         style: TextStyle(fontSize: 15, height: 1.4, color: Colors.black),
       ),
 
@@ -243,10 +355,10 @@ Widget _buildInstructions() {
 
       Text(
         'Combine soy sauce, ½ cup water, brown '
-            'sugar, ginger and garlic in a small saucepan '
-            'and cover. Bring to a boil over medium heat. '
-            'Remove lid and cook for one minute once '
-            'boiling.',
+        'sugar, ginger and garlic in a small saucepan '
+        'and cover. Bring to a boil over medium heat. '
+        'Remove lid and cook for one minute once '
+        'boiling.',
         style: TextStyle(fontSize: 15, height: 1.4, color: Colors.black),
       ),
 
@@ -254,11 +366,11 @@ Widget _buildInstructions() {
 
       Text(
         'Meanwhile, stir together the corn starch and '
-            '2 tablespoons of water in a separate dish until '
-            'smooth. Once sauce is boiling, add mixture to '
-            'the saucepan and stir to combine. Cook until '
-            'the sauce starts to thicken then remove from '
-            'heat.',
+        '2 tablespoons of water in a separate dish until '
+        'smooth. Once sauce is boiling, add mixture to '
+        'the saucepan and stir to combine. Cook until '
+        'the sauce starts to thicken then remove from '
+        'heat.',
         style: TextStyle(fontSize: 15, height: 1.4, color: Colors.black),
       ),
     ],

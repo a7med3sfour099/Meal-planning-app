@@ -22,9 +22,11 @@ class _SignInScreenState extends State<SignInScreen> {
       String email = emailController.text.trim();
       String password = passwordController.text.trim();
 
-      if (email == SignInScreen.correctEmail && password == SignInScreen.correctPassword) {
+      if (email == SignInScreen.correctEmail &&
+          password == SignInScreen.correctPassword) {
         SignInScreen.userEmail = email;
         print('Welcome User');
+        Navigator.pushReplacementNamed(context, '/home');
       } else {
         print('Email or password is wrong');
       }
@@ -39,7 +41,7 @@ class _SignInScreenState extends State<SignInScreen> {
       body: Stack(
         fit: StackFit.expand,
         children: [
-          Image.asset('assets/images/food_bg.jpg',fit: BoxFit.cover,),
+          Image.asset('assets/images/food_bg.jpg', fit: BoxFit.cover),
 
           Container(
             decoration: BoxDecoration(
@@ -88,7 +90,10 @@ class _SignInScreenState extends State<SignInScreen> {
                   SizedBox(height: 6),
                   Text(
                     'Start planning your meals today.',
-                    style: GoogleFonts.notoSans(color: Colors.white70, fontSize: 15),
+                    style: GoogleFonts.notoSans(
+                      color: Colors.white70,
+                      fontSize: 15,
+                    ),
                   ),
                   SizedBox(height: 28),
                   Container(
@@ -100,12 +105,20 @@ class _SignInScreenState extends State<SignInScreen> {
                     ),
                     child: TextField(
                       controller: emailController,
-                      style: GoogleFonts.notoSans(color: Colors.white, fontSize: 16,fontWeight: FontWeight.w300),
+                      style: GoogleFonts.notoSans(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w300,
+                      ),
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Email Address',
                         hintStyle: TextStyle(color: Colors.white),
-                        icon: Icon(Icons.email_outlined, color: Colors.white, size: 20),
+                        icon: Icon(
+                          Icons.email_outlined,
+                          color: Colors.white,
+                          size: 20,
+                        ),
                       ),
                     ),
                   ),
@@ -120,18 +133,25 @@ class _SignInScreenState extends State<SignInScreen> {
                     child: TextField(
                       controller: passwordController,
                       obscureText: true,
-                      style: GoogleFonts.notoSans(color: Colors.white, fontSize: 16,fontWeight: FontWeight.w300),
+                      style: GoogleFonts.notoSans(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w300,
+                      ),
                       decoration: InputDecoration(
                         border: InputBorder.none,
                         hintText: 'Password',
                         hintStyle: TextStyle(color: Colors.white),
-                        icon: Icon(Icons.lock_outline, color: Colors.white, size: 20),
+                        icon: Icon(
+                          Icons.lock_outline,
+                          color: Colors.white,
+                          size: 20,
+                        ),
                       ),
                     ),
                   ),
 
                   SizedBox(height: 8),
-
 
                   SizedBox(
                     width: double.infinity,
@@ -140,7 +160,9 @@ class _SignInScreenState extends State<SignInScreen> {
                       onPressed: _handleSignIn,
                       style: OutlinedButton.styleFrom(
                         side: BorderSide(color: Colors.white, width: 1.5),
-                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30),
+                        ),
                       ),
                       child: Text(
                         'SIGN IN',
@@ -167,7 +189,7 @@ class _SignInScreenState extends State<SignInScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Text(
-                        "Don't have an account? ",
+                              "Don't have an account? ",
                               style: GoogleFonts.notoSans(
                                 fontSize: 14,
                                 color: Colors.white,
